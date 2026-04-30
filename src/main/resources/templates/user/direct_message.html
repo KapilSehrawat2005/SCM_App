@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{})}">
+<head>
+    <title>Direct Message | SCM</title>
+</head>
+<body>
+<div id="content">
+    <div th:replace="~{user/sidebar :: sidebar}"></div>
+    <div class="sm:pl-64 pt-20 min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div class="p-6 max-w-3xl mx-auto">
+
+            <div class="mb-6">
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Direct Message</h1>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">Send a message directly to one of your contacts.</p>
+            </div>
+
+            <div th:replace="~{message::messagebox}"></div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 mb-8">
+                <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
+                    <i class="fas fa-paper-plane text-blue-600 dark:text-blue-400"></i> New Message
+                </h2>
+                <form method="post" th:action="@{/user/direct-message/send}" th:object="${messageForm}" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select Contact</label>
+                        <select th:field="*{contactId}"
+                                class="w-full p-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option value="">— Choose a contact —</option>
+                            <option th:each="c : ${contacts}" th:value="${c.id}" th:text="${c.name}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Subject</label>
+                        <input type="text" th:field="*{subject}"
+                               class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                               placeholder="Message subject">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                        <textarea th:field="*{content}" rows="5"
+                                  class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+                                  placeholder="Write your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-medium text-sm transition-colors flex items-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Sent Messages</h2>
+                <div class="space-y-3">
+                    <div th:each="msg : ${messages.content}" class="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        <div class="flex items-start justify-between gap-4">
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 dark:text-white text-sm" th:text="${msg.subject}">Subject</h3>
+                                <p class="text-xs text-blue-600 dark:text-blue-400 mt-0.5" th:text="'To: ' + ${msg.recipient.name}"></p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-2" th:text="${msg.content}"></p>
+                            </div>
+                            <span class="text-xs text-gray-400 dark:text-gray-500 flex-shrink-0" th:text="${#temporals.format(msg.sentAt, 'dd MMM yyyy HH:mm')}"></span>
+                        </div>
+                    </div>
+                    <div th:if="${messages.empty}" class="bg-white dark:bg-gray-800 p-10 rounded-2xl border border-gray-100 dark:border-gray-700 text-center">
+                        <div class="w-14 h-14 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-inbox text-xl text-gray-400"></i>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">No messages sent yet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{})}">
+<head>
+    <title>Services | Smart Contact Manager</title>
+</head>
+<body>
+<section id="content" class="pt-24 pb-16 bg-white dark:bg-gray-900">
+    <div class="max-w-5xl mx-auto px-4">
+
+        <div class="text-center mb-12">
+            <span class="inline-block bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400 text-sm font-medium px-4 py-1.5 rounded-full mb-4">What We Offer</span>
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Services</h1>
+            <p class="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+                Powerful tools designed to help you manage, communicate, and grow your professional network.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-database text-blue-600 dark:text-blue-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Secure Contact Storage</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">Store unlimited contacts with photos, addresses, phone numbers, and social links. All data is encrypted and automatically backed up to the cloud.</p>
+                <span class="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded-full">Unlimited Storage</span>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-green-100 dark:bg-green-900/40 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-search text-green-600 dark:text-green-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Advanced Search</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">Find any contact instantly by name, email, or phone number. Our smart search returns results in milliseconds no matter how large your contact list.</p>
+                <span class="text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">Instant Results</span>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-paper-plane text-purple-600 dark:text-purple-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Direct Messaging</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">Send internal messages directly to your contacts and keep a full conversation history. Stay connected without leaving the platform.</p>
+                <span class="text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-2 py-1 rounded-full">Built-in Messaging</span>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/40 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-chart-line text-yellow-600 dark:text-yellow-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Analytics Dashboard</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">View contact statistics, favorite counts, and activity trends on your personal dashboard. Understand your network at a glance.</p>
+                <span class="text-xs font-medium text-yellow-600 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded-full">Real-time Stats</span>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-red-100 dark:bg-red-900/40 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fab fa-github text-red-600 dark:text-red-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">OAuth Login</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">Sign in securely with Google or GitHub. No need to remember another password — use your trusted existing accounts.</p>
+                <span class="text-xs font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-full">Google &amp; GitHub</span>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/40 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-file-excel text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Export to Excel</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">Export your full contact list to Excel with one click. Perfect for offline backups, reporting, or sharing with your team.</p>
+                <span class="text-xs font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded-full">One-Click Export</span>
+            </div>
+        </div>
+
+        <div class="bg-blue-600 dark:bg-blue-700 rounded-2xl p-8 text-center text-white">
+            <h2 class="text-2xl font-bold mb-2">Start Managing Contacts Today</h2>
+            <p class="text-blue-100 mb-6">Create your free account and experience all features instantly.</p>
+            <a href="/register" class="bg-white text-blue-700 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors inline-block">Get Started Free</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>

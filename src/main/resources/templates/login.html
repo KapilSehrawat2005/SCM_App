@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Login | Smart Contact Manager</title>
+</head>
+<body>
+
+<div id="content" class="min-h-screen flex items-center justify-center pt-24 pb-10 px-4 bg-gray-50 dark:bg-gray-900">
+
+    <div class="w-full max-w-md">
+
+        <!-- Logo and Heading -->
+        <div class="text-center mb-8">
+            <img th:src="@{/images/logo.png}" class="h-12 w-auto rounded-lg shadow-md mx-auto mb-4" alt="SCM Logo">
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome back</h1>
+            <p class="text-gray-500 dark:text-gray-400 mt-1">Sign in to your SCM account</p>
+        </div>
+
+        <!-- Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-8">
+
+            <div data-th-replace="message::messagebox"></div>
+
+            <!-- Error -->
+            <div th:if="${param.error}"
+                 class="text-red-600 dark:text-red-400 text-sm text-center mb-4 bg-red-50 dark:bg-red-900/20 px-4 py-3 rounded-xl">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                Invalid email or password. Please try again.
+            </div>
+
+            <!-- Logout -->
+            <div th:if="${param.logout}"
+                 class="text-green-600 dark:text-green-400 text-sm text-center mb-4 bg-green-50 dark:bg-green-900/20 px-4 py-3 rounded-xl">
+                <i class="fas fa-check-circle mr-1"></i>
+                You have been logged out successfully.
+            </div>
+
+            <form method="post" data-th-action="@{'/authenticate'}">
+
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        Email Address
+                    </label>
+
+                    <div class="relative">
+                        <input name="email" type="email" placeholder="you@example.com" required class="w-full h-12 pl-12 pr-4 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        Password
+                    </label>
+
+                    <div class="relative">
+                        <input name="password"
+                               type="password"
+                               placeholder="Enter your password"
+                               required
+                               class="w-full h-12 pl-12 pr-4 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex gap-3">
+                    <button type="submit"
+                            class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition">
+                        Sign In
+                    </button>
+
+                    <button type="reset"
+                            class="flex-1 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-semibold transition">
+                        Reset
+                    </button>
+                </div>
+            </form>
+
+            <!-- Divider -->
+            <div class="flex items-center my-6">
+                <div class="flex-1 h-px bg-gray-200 dark:bg-gray-600"></div>
+                <span class="px-3 text-xs text-gray-400">OR CONTINUE WITH</span>
+                <div class="flex-1 h-px bg-gray-200 dark:bg-gray-600"></div>
+            </div>
+
+            <!-- OAuth -->
+            <div class="flex flex-col space-y-3">
+
+                <a data-th-href="@{'/oauth2/authorization/google'}"
+                   class="px-4 py-3 w-full font-semibold rounded-xl login-with-google-btn text-center">
+                    Sign in with Google
+                </a>
+
+                <a data-th-href="@{'/oauth2/authorization/github'}"
+                   class="py-3 px-4 w-full flex justify-center items-center bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 text-white font-semibold rounded-xl transition">
+                    <i class="fab fa-github mr-2"></i>
+                    Sign in with GitHub
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Bottom -->
+        <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+            Don't have an account?
+            <a href="/register" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                Create one free
+            </a>
+        </p>
+
+    </div>
+
+
+</div>
+
+<script></script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{})}">
+<head>
+    <title th:text="${loggedInUser.name}+' | Dashboard'">Dashboard</title>
+</head>
+<body>
+
+<div id="content">
+
+    <div th:replace="~{user/sidebar :: sidebar}"></div>
+
+    <div class="sm:pl-64 pt-20 min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div class="p-6 max-w-5xl mx-auto">
+
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+                    Good day, <span th:text="${loggedInUser.name}">User</span> 👋
+                </h1>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">
+                    Here's a summary of your account
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+
+                <!-- Contacts -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-address-book text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+
+                        <span class="text-xs font-medium
+                                     text-blue-700 dark:text-blue-300
+                                     bg-blue-100 dark:bg-blue-900/40
+                                     px-2 py-1 rounded-full">
+                            Total
+                        </span>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white"
+                        th:text="${totalContacts}">0</h3>
+
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                        Contacts
+                    </p>
+                </div>
+
+                <!-- Favorites -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+
+                        <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/40 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-star text-yellow-500 dark:text-yellow-400 text-xl"></i>
+                        </div>
+
+                        <!-- FIXED -->
+                        <span class="text-xs font-medium
+                                     text-yellow-700 dark:text-yellow-300
+                                     bg-yellow-100 dark:bg-yellow-900/40
+                                     px-2 py-1 rounded-full">
+                            Saved
+                        </span>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white"
+                        th:text="${favoriteContacts}">0</h3>
+
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                        Favorites
+                    </p>
+                </div>
+
+                <!-- Cloud Sync -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/40 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-cloud text-green-500 dark:text-green-400 text-xl"></i>
+                        </div>
+
+                        <span class="text-xs font-medium
+                                     text-green-700 dark:text-green-300
+                                     bg-green-100 dark:bg-green-900/40
+                                     px-2 py-1 rounded-full">
+                            Active
+                        </span>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+                        Cloud Sync
+                    </h3>
+
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                        All data synced
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 mb-8">
+
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    Quick Actions
+                </h2>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <a th:href="@{/user/contacts/add}"
+                       class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-colors">
+                        <i class="fas fa-plus"></i> Add Contact
+                    </a>
+
+                    <a th:href="@{/user/contacts}"
+                       class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-colors">
+                        <i class="fas fa-address-book"></i> View Contacts
+                    </a>
+
+                    <a th:href="@{/user/direct-message}"
+                       class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-colors">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </a>
+
+                    <a th:href="@{/user/profile}"
+                       class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-colors">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Getting Started Tips (FIXED DARK MODE) -->
+            <div class="bg-blue-50 dark:bg-gray-800
+                        border border-blue-200 dark:border-gray-700
+                        rounded-2xl p-5">
+
+                <div class="flex items-start space-x-4">
+
+                    <div class="w-10 h-10
+                                bg-blue-100 dark:bg-gray-700
+                                rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-info text-blue-600 dark:text-white"></i>
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-base font-semibold
+                                   text-blue-800 dark:text-white mb-1">
+                            Getting Started Tips
+                        </h3>
+
+                        <ul class="text-sm
+                                   text-blue-700 dark:text-gray-300
+                                   space-y-1">
+
+                            <li>
+                                <i class="fas fa-check-circle mr-1 text-xs"></i>
+                                Add your first contact using the "Add Contact" button above
+                            </li>
+
+                            <li>
+                                <i class="fas fa-check-circle mr-1 text-xs"></i>
+                                Star important contacts as favorites for quick access
+                            </li>
+
+                            <li>
+                                <i class="fas fa-check-circle mr-1 text-xs"></i>
+                                Export your contacts to Excel anytime from the Contacts page
+                            </li>
+
+                            <li>
+                                <i class="fas fa-check-circle mr-1 text-xs"></i>
+                                Use search to find any contact by name, email, or phone
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

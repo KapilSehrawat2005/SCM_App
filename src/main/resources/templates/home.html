@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Smart Contact Manager</title>
+</head>
+<body>
+<div id="content">
+    <section class="pt-24 pb-20 bg-blue-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+        <div class="max-w-5xl mx-auto text-center px-4">
+            <div class="inline-flex items-center bg-blue-200/70 dark:bg-gray-700 backdrop-blur-sm text-black dark:text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+                <i class="fas fa-cloud mr-2"></i> Cloud-Powered Contact Management
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Manage Contacts
+                <br>
+                <span class="text-blue-700 dark:text-blue-400">
+                     Effortlessly
+                </span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
+                Secure, fast, and intuitive contact management for professionals and teams.
+                Access your contacts from anywhere.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/register" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition">
+                    Get Started Free
+                </a>
+                <a href="/login" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                    Sign In
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">Why Choose SCM?</h2>
+            <p class="text-center text-gray-500 dark:text-gray-400 mb-12 max-w-xl mx-auto">Everything you need to manage your professional network in one place.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl text-center hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cloud-upload-alt text-2xl text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Cloud Sync</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Access your contacts from any device, anytime. Real-time sync keeps everything up to date.</p>
+                </div>
+                <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl text-center hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-green-100 dark:bg-green-900/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lock text-2xl text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Bank-Level Security</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Your data is encrypted end-to-end. OAuth 2.0 login via Google & GitHub keeps you protected.</p>
+                </div>
+                <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl text-center hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-2xl text-purple-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Direct Messaging</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Send messages directly to your contacts without leaving the platform.</p>
+                </div>
+                <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl text-center hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-yellow-100 dark:bg-yellow-900/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-2xl text-yellow-600 dark:text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Advanced Search</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Find any contact instantly by name, email, or phone number with smart search.</p>
+                </div>
+                <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl text-center hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-red-100 dark:bg-red-900/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-excel text-2xl text-red-600 dark:text-red-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Export to Excel</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Export your entire contact list to Excel with a single click for offline access.</p>
+                </div>
+                <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl text-center hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-indigo-100 dark:bg-indigo-900/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-moon text-2xl text-indigo-600 dark:text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Dark Mode</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Toggle between light and dark themes. Your preference is saved automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">What Our Users Say</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-600">
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic mb-4">"SCM changed how I manage client contacts. The cloud sync is flawless and the interface is incredibly clean."</p>
+                    <div class="flex items-center">
+                        <div class="w-9 h-9 rounded-full bg-blue-100 dark:bg-blue-800 flex items-center justify-center mr-3">
+                            <span class="text-blue-700 dark:text-blue-300 font-bold text-sm">KS</span>
+                        </div>
+                        <span class="font-semibold text-gray-800 dark:text-white">Kapil Sharma</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-600">
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic mb-4">"Secure, fast, and intuitive. Highly recommended for small businesses looking for a reliable contact manager."</p>
+                    <div class="flex items-center">
+                        <div class="w-9 h-9 rounded-full bg-green-100 dark:bg-green-800 flex items-center justify-center mr-3">
+                            <span class="text-green-700 dark:text-green-300 font-bold text-sm">PS</span>
+                        </div>
+                        <span class="font-semibold text-gray-800 dark:text-white">Priya Singh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-blue-600 dark:bg-blue-800 text-white text-center">
+        <div class="max-w-2xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
+            <p class="text-blue-100 mb-8">Join thousands of professionals who trust SCM for their contact management.</p>
+            <a href="/register" class="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors inline-block">Create Free Account</a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+        <p class="text-sm">&copy; 2026 Smart Contact Manager. All rights reserved.</p>
+    </footer>
+</div>
+<script></script>
+</body>
+</html>
